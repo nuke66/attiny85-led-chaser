@@ -1,5 +1,5 @@
-# attiny85 led chaser
+# ATtiny85 led chaser
 
-Simple 8x led chaser using Arduino on the Attiny85.
+Simple 8x led chaser using Arduino on the ATtiny85.
 
 
