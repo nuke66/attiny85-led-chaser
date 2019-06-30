@@ -1,5 +1,7 @@
 # ATtiny85 led chaser
 
-Simple 8x led chaser using Arduino on the ATtiny85.
+Simple Arduino 8x led chaser using a ATtiny85 and the 74H595 serial to parallel register.
+
+
 
 
