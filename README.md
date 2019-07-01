@@ -2,7 +2,7 @@
 
 Simple Arduino 8x led chaser using a ATtiny85 and the 74H595 serial to parallel register.
 
-![Fritzing circuit](fritzing/diagram.jpg | width=100)
+![Fritzing circuit](fritzing/diagram.jpg?s=200)
 
 
 
