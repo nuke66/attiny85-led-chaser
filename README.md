@@ -11,6 +11,11 @@ Sequences include:
 * binary_count
 * blink_all
 
-<img src="./fritzing/attiny85-led-chaser.jpg" width="30%" height="auto" style="max-width:200px;">
+I use the micro USB just for power, an easy way to connect 5v to my projects.  
+
 
 <img src="./fritzing/diagram.jpg" width="30%" height="auto" style="max-width:200px;">
+<i>Circuit layout in Fritzing</i>
+
+<img src="./fritzing/attiny85-led-chaser.jpg" width="30%" height="auto" style="max-width:200px;">
+<i>The actual circuit</i>
