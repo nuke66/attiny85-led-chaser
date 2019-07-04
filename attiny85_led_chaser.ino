@@ -30,8 +30,6 @@
  * - Remember decoupling capacitors on Vcc to Gnd (0.1uF)
  * 
  */
-
-#define NUM_SR  1  // Number of shift registers   <==???? do I need this ???
 #define NUM_LED 16  // Total number of LEDs
 
 // ATTiny Arduino pins
@@ -76,7 +74,7 @@ void loop() {
   blink_all(500);
   writeSR(0, 200);
   
-  //binary_count(1);
+  binary_count(1);
 }
 
 /*   
@@ -84,8 +82,6 @@ void loop() {
  */
 void writeSR(byte value, int nDelay)
 {
-  // if (bReverse) value = ~value;
-
   digitalWrite(SR_LATCH, LOW);      // Set latch pin low
   shiftOut(SR_DATA, SR_CLOCK, MSBFIRST, value); // Shift out the byte value
   digitalWrite(SR_LATCH, HIGH);     // Set latch pin high 
@@ -275,24 +271,8 @@ void sweep_bi_direction(int nDelay)
   
      for(; n < NUM_LED;) 
      {
-       writeSR((1 << n)|(1<< i), nDelay); // OR both sweeps together to get one valuek
+       writeSR((1 << n)|(1<< i), nDelay); // OR both sweeps together to get one value
        n++; 
        i--;
      }
 }
-
-/*
- * from middle point sweep in both directions (left and right from middle) to end.  Stack when you hit the end.
- */
-//void sweep_and_stack_middle()
-//{
-  
-//}
-
-/*
- * snake, basically the same as sweep() but using more than one LED
- */
-// void snake()
-// {
-  
-// }
