@@ -1,16 +1,15 @@
 /*
+ * LED chaser built on the 74H595 shift register.
  * This version for the ATTiny85 - does not support serial!!!
  * 
- * Board: ATTiny25/45/85
- * Processor: ATTiny85
- * Clock: Internal 1 Mhz
- * Programmer: USBtinyISP
+ * Arduino IDE settings:
+ *   Board: ATTiny25/45/85
+ *   Processor: ATTiny85
+ *   Clock: Internal 1 Mhz
+ *   Programmer: USBtinyISP
  * 
- * 
- * LED chaser built on the 74H595 shift register
  * 
  * Pin out for 74H595
- * 
  * ------+------------------------------
  * Pin     Description
  * ------+------------------------------
@@ -106,8 +105,6 @@ void writeSR(byte value, int nDelay, bool bReverse)
   if (nDelay != 0) delay(nDelay);
 }
 
-
-
 /*
  * Sweep sequence, forward and back again
  */
@@ -142,24 +139,22 @@ void one_in_two(int nDelay)
   int count = 0; 
   int res = 0; 
   
-  for (int temp = NUM_LED; temp > 0; temp--) {
+  for (int x = NUM_LED; x > 0; x--) {
     
     // if bit is odd, then generate 
-    // number and or with res 
+    // number and OR with res 
     if (count % 2 == 0) 
       res |= (1 << count); 
         
     count++; 
   }
 
- 
   writeSR(res, nDelay);
   writeSR(res<<1, nDelay);
   writeSR(res, nDelay);
   writeSR(res<<1, nDelay);
   writeSR(0,500);
 }
-
 
 /*
  * Cycle through every 1 in 2 LEDs but with a gap between transitions 
@@ -169,7 +164,7 @@ void one_in_two_delayed(int nDelay)
   int count = 0; 
   int res = 0; 
   
-  for (int temp = NUM_LED; temp > 0; temp--) {
+  for (int x = NUM_LED; x > 0; x--) {
     
     // if bit is odd, then generate 
     // number and or with res 
@@ -205,7 +200,7 @@ void one_in_three(int nDelay)
   // res for store 010101.. number 
   int res = 0; 
   
-  for (int temp = NUM_LED; temp > 0; temp--) {
+  for (int x = NUM_LED; x > 0; x--) {
     
     // if bit is odd, then generate 
     // number and or with res 
@@ -233,7 +228,6 @@ void blink_all(int nDelay)
     writeSR(0,nDelay);
   }
 }
-
 
 /*
  * Sweep with LED stacking 
